@@ -1,0 +1,58 @@
+<html><body>
+<!-- <div>
+  <a [routerLink]="['/studentrou']">Student</a>
+</div> -->
+<h1>Student Details</h1>
+<form [formGroup]="form">
+<div>
+  <label>Firstname :</label><br>
+  <input type=" text" class="class-container" formControlName="fname">
+
+  <div *ngIf="form.controls['fname'].touched && form.controls['fname'].invalid">
+    <small *ngIf="form.controls['fname'].errors && form.controls['fname'].errors['required']">First Name is required</small>
+
+    <small *ngIf="form.controls['fname'].errors && form.controls['fname'].errors['minlength']">Minumum length 4 charcaters</small>
+
+    <small *ngIf="form.controls['fname'].errors && form.controls['fname'].errors['maxlength']">Maximum length 4 charcaters</small>
+
+  </div>
+</div>
+
+<br>
+<div>
+  <label>Lastname :</label><br>
+  <input type=" text" class="class-container" formControlName="lname">
+
+  <div *ngIf="form.controls['lname'].touched && form.controls['lname'].invalid">
+    <small *ngIf="form.controls['lname'].errors && form.controls['lname'].errors['required']">Last name is Required</small>
+
+    <small *ngIf="form.controls['lname'].errors && form.controls['lname'].errors['minlength']">Minimum length is 4</small>
+
+    <small *ngIf="form.controls['lname'].errors &&  form.controls['lname'].errors['maxlength']">Maxium length is 8</small>
+  </div>
+</div>
+<br>
+<div>
+  <label>Phone :</label><br>
+  <input type=" text" class="class-container" formControlName="phone">
+  <div *ngIf="form.controls['phone'].touched && form.controls['phone'].invalid">
+    <small *ngIf="form.controls['phone'].errors && form.controls['phone'].errors['required']">Phone is Required</small>
+
+    <small *ngIf="form.controls['phone'].errors && form.controls['phone'].errors['pattern']">Password should start with 7,8,9, must contain 10 elements</small>
+  </div>
+</div>
+<br>
+<div>
+  <label>Email :</label><br>
+  <input type=" text" class="class-container" formControlName="email">
+  <div *ngIf="form.controls['email'].touched && form.controls['email'].invalid">
+    <small *ngIf="form.controls['email'].errors && form.controls['email'].errors['required']">Email id Required</small>
+
+  <small *ngIf="form.controls['email'].errors && form.controls['email'].errors['pattern']">Invalid Pattern</small>
+  </div>
+</div>
+<br>
+<button (click)="signuphere()">Submit</button>
+</form>
+<router-outlet></router-outlet>
+</body></html>  
